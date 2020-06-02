@@ -1,4 +1,7 @@
 import React from 'react'
+import { startRegisterUser } from '../../redux/actions/userActions'
+import { connect } from 'react-redux'
+
 
 class RegisterUser extends React.Component{
     constructor(){
@@ -14,6 +17,7 @@ class RegisterUser extends React.Component{
             password : ""
         }
     }
+
 
     handleInputChange = (e) =>{
         this.setState({
@@ -46,7 +50,9 @@ class RegisterUser extends React.Component{
             password : this.state.password,
         }
 
+        this.props.dispatch(startRegisterUser(formData))
         console.log(formData)
+
     }
 
     render(){
@@ -103,4 +109,4 @@ class RegisterUser extends React.Component{
     }
 }
 
-export default RegisterUser
+export default connect()(RegisterUser)
