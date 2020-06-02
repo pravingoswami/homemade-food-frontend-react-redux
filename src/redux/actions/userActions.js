@@ -17,3 +17,19 @@ export const startRegisterUser = (formData, redirect) => {
             })
     }
 }
+
+
+
+export const startLoginUser = (formData) => {
+    console.log(formData)
+    return (dispatch) => {
+        axios.post('/users/login', formData)
+            .then(response => {
+                if(response.data.errors){
+                    alert(response.data.errors)
+                } else {
+                    console.log(response.data)
+                }
+            })
+    }
+}

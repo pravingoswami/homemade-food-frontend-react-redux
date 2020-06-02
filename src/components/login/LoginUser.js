@@ -1,10 +1,12 @@
 import React from "react"
+import { connect } from "react-redux"
+import { startLoginUser } from "../../redux/actions/userActions"
 
 class LoginUser extends React.Component{
     constructor(){
         super()
         this.state = {
-            email : "",
+            username : "",
             password : ""
         }
     }
@@ -18,9 +20,10 @@ class LoginUser extends React.Component{
     handleSubmit = (e) => {
         e.preventDefault()
         const formData = {
-            email : this.state.email,
+            username : this.state.username,
             password : this.state.password
         }
+        this.props.dispatch(startLoginUser(formData))
         console.log(formData)
     }
 
@@ -30,8 +33,8 @@ class LoginUser extends React.Component{
             <div>
                 <h1>This is Login Page</h1>
                 <form onSubmit = {this.handleSubmit} >
-                    <label>Email</label>&nbsp;&nbsp;
-                    <input type = "text" name = "email" value = {this.state.email} onChange = {this.handleInputChange} />
+                    <label>username</label>&nbsp;&nbsp;
+                    <input type = "text" name = "username" value = {this.state.username} onChange = {this.handleInputChange} />
                     <br></br>
                     <br></br>
                     <label>Pasword</label>&nbsp;&nbsp;
@@ -45,4 +48,4 @@ class LoginUser extends React.Component{
     }
 }
 
-export default LoginUser
+export default connect()(LoginUser)
