@@ -35,6 +35,7 @@ export const startLoginUser = (formData, redirect) => {
                 } else {
                     alert("Successfully Login")
                     dispatch(setUser(response.data))
+                    localStorage.setItem("x-auth", response.data.token)
                     redirect()
                 }
             })
