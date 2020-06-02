@@ -23,7 +23,8 @@ class LoginUser extends React.Component{
             username : this.state.username,
             password : this.state.password
         }
-        this.props.dispatch(startLoginUser(formData))
+        const redirect = () => this.props.history.push("/home")
+        this.props.dispatch(startLoginUser(formData, redirect))
         console.log(formData)
     }
 

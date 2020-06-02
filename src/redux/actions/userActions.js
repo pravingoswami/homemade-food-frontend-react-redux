@@ -18,9 +18,14 @@ export const startRegisterUser = (formData, redirect) => {
     }
 }
 
+export const setUser = (user) => {
+    return {
+        type : "SET_USER",
+        payload : user
+    }
+}
 
-
-export const startLoginUser = (formData) => {
+export const startLoginUser = (formData, redirect) => {
     console.log(formData)
     return (dispatch) => {
         axios.post('/users/login', formData)
@@ -28,7 +33,9 @@ export const startLoginUser = (formData) => {
                 if(response.data.errors){
                     alert(response.data.errors)
                 } else {
-                    console.log(response.data)
+                    alert("Successfully Login")
+                    dispatch(setUser(response.data))
+                    redirect()
                 }
             })
     }
