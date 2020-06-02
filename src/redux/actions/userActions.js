@@ -1,7 +1,7 @@
 import axios from "../../connfig/axios"
 
 
-export const startRegisterUser = (formData) => {
+export const startRegisterUser = (formData, redirect) => {
     return (dispatch) => {
         axios.post('/users/register', formData)
             .then(response => {
@@ -12,6 +12,7 @@ export const startRegisterUser = (formData) => {
                     alert(response.data.message)
                 } else {
                     alert("Successfully Register")
+                    redirect()
                 }
             })
     }
