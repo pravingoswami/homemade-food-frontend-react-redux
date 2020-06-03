@@ -41,3 +41,19 @@ export const startLoginUser = (formData, redirect) => {
             })
     }
 }
+
+export const startLogoutUser = () => {
+    return (dispatch) => {
+        axios.delete('/users/logout', {
+            headers : {'x-auth' : localStorage.getItem('x-auth')}
+        })
+            .then(response => {
+                console.log(response.data)
+                if(response.data.message) {
+                    alert(response.data.message)
+                } else{
+                    localStorage.removeItem('x-auth')
+                }
+            })
+    }
+}

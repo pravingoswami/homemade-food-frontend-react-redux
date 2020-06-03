@@ -4,9 +4,16 @@ import {BrowserRouter, Route, Link} from "react-router-dom"
 import HomePage from './components/home/HomePage';
 import LoginUser from './components/login/LoginUser';
 import { connect } from 'react-redux';
+import { startLogoutUser } from './redux/actions/userActions';
 
 
 function App(props) {
+
+  const handleLogout = () => {
+    console.log("logout")
+    props.dispatch(startLogoutUser())
+  }
+
   return (
     <div>
       <BrowserRouter>
@@ -22,7 +29,7 @@ function App(props) {
                     <Link to = "/home" >Home</Link>&nbsp;&nbsp;
                     <Link to = "/profile" >Profile</Link>&nbsp;&nbsp;
                     <Link to = "/customer" >Customer</Link>&nbsp;&nbsp;
-                    <Link to = "/logout" >Logout</Link>&nbsp;&nbsp;
+                    <Link to = "/logout" onClick = {handleLogout} >Logout</Link>&nbsp;&nbsp;
                 </React.Fragment>
                )
             }
@@ -32,7 +39,7 @@ function App(props) {
                   <Link to = "/home" >Home</Link>&nbsp;&nbsp;
                   <Link to = "/profile" >Profile</Link>&nbsp;&nbsp;
                   <Link to = "/chef" >Chef</Link>&nbsp;&nbsp;
-                  <Link to = "/logout" >Logout</Link>&nbsp;&nbsp;
+                  <Link to = "/logout" onClick = {handleLogout} >Logout</Link>&nbsp;&nbsp;
             </React.Fragment>
                )
              }
@@ -42,7 +49,7 @@ function App(props) {
                   <Link to = "/home" >Home</Link>&nbsp;&nbsp;
                   <Link to = "/profile" >Profile</Link>&nbsp;&nbsp;
                   <Link to = "/admin" >Admin</Link>&nbsp;&nbsp;
-                  <Link to = "/logout" >Logout</Link>&nbsp;&nbsp;
+                  <Link to = "/logout" onClick = {handleLogout} >Logout</Link>&nbsp;&nbsp;
                 </React.Fragment>
                   )
              }
