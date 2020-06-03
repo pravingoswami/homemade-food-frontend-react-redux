@@ -32,7 +32,7 @@ class LoginUser extends React.Component{
 
         return (
             <div>
-                <h1>This is Login Page</h1>
+                <h1>This is Login Page for User</h1>
                 <form onSubmit = {this.handleSubmit} >
                     <label>username</label>&nbsp;&nbsp;
                     <input type = "text" name = "username" value = {this.state.username} onChange = {this.handleInputChange} />
