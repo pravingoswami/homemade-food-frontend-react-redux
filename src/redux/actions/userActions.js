@@ -42,6 +42,12 @@ export const startLoginUser = (formData, redirect) => {
     }
 }
 
+export const removeUser = () => {
+    return {
+        type : "REMOVE_USER"
+    }
+}
+
 export const startLogoutUser = () => {
     return (dispatch) => {
         axios.delete('/users/logout', {
