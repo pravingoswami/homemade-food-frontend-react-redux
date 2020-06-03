@@ -33,9 +33,9 @@ export const startLoginUser = (formData, redirect) => {
                 if(response.data.errors){
                     alert(response.data.errors)
                 } else {
+                    localStorage.setItem("x-auth", response.data.token)
                     alert("Successfully Login")
                     dispatch(setUser(response.data))
-                    localStorage.setItem("x-auth", response.data.token)
                     redirect()
                 }
             })
@@ -59,6 +59,8 @@ export const startLogoutUser = () => {
                     alert(response.data.message)
                 } else{
                     localStorage.removeItem('x-auth')
+                    alert("Successfully Logout ")
+                    dispatch(removeUser())
                 }
             })
     }

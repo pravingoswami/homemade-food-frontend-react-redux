@@ -12,7 +12,6 @@ store.subscribe(() => {
   console.log(store.getState())
 })
 
-console.log(store.getState())
 
 if(localStorage.getItem("x-auth")){
   axios.get("/users/info", {
@@ -26,15 +25,21 @@ if(localStorage.getItem("x-auth")){
       store.dispatch(setUser(user))
     })
 }
+store.subscribe(() => {
+  console.log(store.getState())
+})
 
-const rootElement = document.getElementById('root')
 
-ReactDOM.render(
-  <Provider store = {store} >
-  <App />
-</Provider>,
-rootElement
+console.log(store.getState())
+
+const jsx = (
+    <Provider store = {store} >
+        <App />
+    </Provider>
 )
+
+ReactDOM.render(jsx, document.getElementById('root'));
+
 
 
 // If you want your app to work offline and load faster, you can change
