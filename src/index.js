@@ -20,14 +20,9 @@ if(localStorage.getItem("x-auth")){
     }
   })
     .then(response => {
-      console.log(response.data)
-      const user = response.data
-      store.dispatch(setUser(user))
+      store.dispatch(setUser(response.data))
     })
 }
-store.subscribe(() => {
-  console.log(store.getState())
-})
 
 
 console.log(store.getState())
