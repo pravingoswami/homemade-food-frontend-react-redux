@@ -65,3 +65,22 @@ export const startLogoutUser = () => {
             })
     }
 }
+
+export const startEditUSer = (formData) => {
+    return (dispatch) => {
+        axios.put("/users/edit", {
+            headers : {'x-auht' : localStorage.getItem('x-auth')}
+        })
+            .then(response => {
+                if(response.data.errmsg){
+                    alert(response.data.errmsg)
+                } else if(response.data.message){
+                    alert(response.data.message)
+                } else {
+                    alert("Successfully Upadated Record")
+                }
+            })
+
+            .catch(err => alert(err))
+    }
+}

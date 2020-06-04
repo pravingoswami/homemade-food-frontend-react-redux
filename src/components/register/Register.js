@@ -58,7 +58,7 @@ class RegisterUser extends React.Component{
     render(){
         return (
             <div>
-                <h1>This is register Page</h1>
+                <h1>This is register Page for USer</h1>
                 <form onSubmit = {this.handleSubmit} >
                     <label>Name</label> &nbsp;&nbsp;
                     <input type = "text" value = {this.state.name} name = "name" onChange = {this.handleInputChange} />
