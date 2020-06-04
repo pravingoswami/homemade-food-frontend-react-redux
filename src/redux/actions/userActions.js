@@ -66,6 +66,13 @@ export const startLogoutUser = () => {
     }
 }
 
+export const editUSer = (user) => {
+    return {
+        type : "EDIT_USER",
+        payload : user
+    }
+}
+
 export const startEditUSer = (formData) => {
     return (dispatch) => {
         axios.put("/users/edit", {
@@ -77,6 +84,7 @@ export const startEditUSer = (formData) => {
                 } else if(response.data.message){
                     alert(response.data.message)
                 } else {
+                    dispatch(editUSer(response.data))
                     alert("Successfully Upadated Record")
                 }
             })
