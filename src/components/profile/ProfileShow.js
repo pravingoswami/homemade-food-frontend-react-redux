@@ -8,15 +8,15 @@ function ProfileShow(props){
             {
                 props.user && (
                     <div>
-                        <label><b>Name</b> - {props.user.name}</label>
+                        {props.user.name && <label><b>Name</b> - {props.user.name}</label>}
                         <br></br> 
-                        <label><b>Username</b> - {props.user.username}</label>
+                        {props.user.username && <label><b>Username</b> - {props.user.username}</label>}
                         <br></br>
-                        <label><b>Mobile</b> - {props.user.mobile}</label>
+                        {props.user.mobile && <label><b>Mobile</b> - {props.user.mobile}</label>}
                         <br></br>
-                        <label><b>Email</b> - {props.user.email}</label>
+                        {props.user.email && <label><b>Email</b> - {props.user.email}</label>}
                         <br></br>
-                        <label><b>Gender</b> - {props.user.gender}</label>
+                        {props.user.gender && <label><b>Gender</b> - {props.user.gender}</label>}
                         <br></br>
                     </div>
                 )
