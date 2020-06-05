@@ -5,6 +5,7 @@ import HomePage from './components/home/HomePage';
 import LoginUser from './components/login/LoginUser';
 import { connect } from 'react-redux';
 import { startLogoutUser } from './redux/actions/userActions';
+import ProfileShow from './components/profile/ProfileShow';
 
 
 function App(props) {
@@ -68,6 +69,7 @@ function App(props) {
         <Route path = "/home" component = {HomePage} exact = {true} />       
         <Route path = "/register" component = {RegisterUser} exact = {true} />       
         <Route path = "/login" component = {LoginUser} exact = {true} />       
+        <Route path = "/profile" component = {ProfileShow} exact = {true} />       
 
       </BrowserRouter>
     </div>
